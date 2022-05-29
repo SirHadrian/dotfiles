@@ -110,15 +110,18 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+terminal="gnome-terminal"
 
 # some more ls aliases
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
-alias cmus='flatpak run io.github.cmus.cmus'
+alias ra='$terminal -- ranger'
+alias cmus='$terminal -- flatpak run io.github.cmus.cmus'
 alias minecraft='minecraft-launcher& disown ; exit'
 alias code='flatpak run com.visualstudio.code'
 alias wolf='flatpak run io.gitlab.librewolf-community'
+alias wa='nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers'
 
 #
 # # ex - archive extractor

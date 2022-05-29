@@ -280,7 +280,7 @@ end, {
     group = "hotkeys"
 }), -- X screen locker
 awful.key({altkey, "Control"}, "l", function()
-    os.execute(scrlocker)
+    os.execute("xscreensaver-command -lock")
 end, {
     description = "lock screen",
     group = "hotkeys"
@@ -298,18 +298,21 @@ awful.key({modkey}, "Left", awful.tag.viewprev, {
 }), awful.key({modkey}, "Escape", awful.tag.history.restore, {
     description = "go back",
     group = "tag"
-}), -- Non-empty tag browsing
-awful.key({altkey}, "Left", function()
-    lain.util.tag_view_nonempty(-1)
-end, {
-    description = "view  previous nonempty",
-    group = "tag"
-}), awful.key({altkey}, "Right", function()
-    lain.util.tag_view_nonempty(1)
-end, {
-    description = "view  previous nonempty",
-    group = "tag"
-}), -- Default client focus
+}), 
+-- Non-empty tag browsing
+-- awful.key({altkey}, "Left", function()
+--     lain.util.tag_view_nonempty(-1)
+-- end, {
+--     description = "view  previous nonempty",
+--     group = "tag"
+-- }), 
+-- awful.key({altkey}, "Right", function()
+--     lain.util.tag_view_nonempty(1)
+-- end, {
+--     description = "view  previous nonempty",
+--     group = "tag"
+-- }), 
+-- Default client focus
 awful.key({altkey}, "j", function()
     awful.client.focus.byidx(1)
 end, {
@@ -949,7 +952,7 @@ end)
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 8
 
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
