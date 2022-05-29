@@ -101,17 +101,23 @@ local altkey = "Mod1"
 local terminal = "gnome-terminal"
 local vi_focus = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev = true -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
-local editor = os.getenv("vim") or "nano"
+local editor = os.getenv("EDITOR") or "nano"
 local browser = "flatpak run io.gitlab.librewolf-community"
 
 awful.util.terminal = terminal
 awful.util.tagnames = {"1", "2", "3"}
-awful.layout.layouts = { -- awful.layout.suit.floating,
-awful.layout.suit.tile, awful.layout.suit.tile.left, awful.layout.suit.tile.bottom, awful.layout.suit.tile.top,
+awful.layout.layouts = 
+{ 
+awful.layout.suit.tile, 
+awful.layout.suit.tile.left, 
+awful.layout.suit.tile.bottom, 
+awful.layout.suit.tile.top,
 -- awful.layout.suit.fair,
 -- awful.layout.suit.fair.horizontal,
 -- awful.layout.suit.spiral,
-awful.layout.suit.spiral.dwindle -- awful.layout.suit.max,
+awful.layout.suit.spiral.dwindle,
+--awful.layout.suit.floating
+-- awful.layout.suit.max,
 -- awful.layout.suit.max.fullscreen,
 -- awful.layout.suit.magnifier,
 -- awful.layout.suit.corner.nw,
@@ -211,24 +217,24 @@ awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function()
 end)
 
 -- Set the Menubar terminal for applications that require it
---menubar.utils.terminal = terminal
+-- menubar.utils.terminal = terminal
 
 -- }}}
 
 -- {{{ Screen
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", function(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
+-- screen.connect_signal("property::geometry", function(s)
+--     -- Wallpaper
+--     if beautiful.wallpaper then
+--         local wallpaper = beautiful.wallpaper
+--         -- If wallpaper is a function, call it with the screen
+--         if type(wallpaper) == "function" then
+--             wallpaper = wallpaper(s)
+--         end
+--         gears.wallpaper.maximized(wallpaper, s, true)
+--     end
+-- end)
 
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function(s)
@@ -532,12 +538,12 @@ end, {
 awful.key({}, "#233", function()
     os.execute("adjust-brightness.sh -inc 20")
 end, {
-    description = "+10%",
+    description = "brightness +10%",
     group = "hotkeys"
 }), awful.key({}, "#232", function()
     os.execute("adjust-brightness.sh -dec 20")
 end, {
-    description = "-10%",
+    description = "brightness -10%",
     group = "hotkeys"
 }), -- ALSA volume control
 awful.key({}, "#123", function()
@@ -570,49 +576,53 @@ end, {
 end, {
     description = "volume 0%",
     group = "hotkeys"
-}), -- MPD control
-awful.key({altkey, "Control"}, "Up", function()
-    os.execute("mpc toggle")
-    beautiful.mpd.update()
-end, {
-    description = "mpc toggle",
-    group = "widgets"
-}), awful.key({altkey, "Control"}, "Down", function()
-    os.execute("mpc stop")
-    beautiful.mpd.update()
-end, {
-    description = "mpc stop",
-    group = "widgets"
-}), awful.key({altkey, "Control"}, "Left", function()
-    os.execute("mpc prev")
-    beautiful.mpd.update()
-end, {
-    description = "mpc prev",
-    group = "widgets"
-}), awful.key({altkey, "Control"}, "Right", function()
-    os.execute("mpc next")
-    beautiful.mpd.update()
-end, {
-    description = "mpc next",
-    group = "widgets"
-}), awful.key({altkey}, "0", function()
-    local common = {
-        text = "MPD widget ",
-        position = "top_middle",
-        timeout = 2
-    }
-    if beautiful.mpd.timer.started then
-        beautiful.mpd.timer:stop()
-        common.text = common.text .. lain.util.markup.bold("OFF")
-    else
-        beautiful.mpd.timer:start()
-        common.text = common.text .. lain.util.markup.bold("ON")
-    end
-    naughty.notify(common)
-end, {
-    description = "mpc on/off",
-    group = "widgets"
-}), -- Copy primary to clipboard (terminals to gtk)
+}), 
+
+-- MPD control
+-- awful.key({altkey, "Control"}, "Up", function()
+--     os.execute("mpc toggle")
+--     beautiful.mpd.update()
+-- end, {
+--     description = "mpc toggle",
+--     group = "widgets"
+-- }), awful.key({altkey, "Control"}, "Down", function()
+--     os.execute("mpc stop")
+--     beautiful.mpd.update()
+-- end, {
+--     description = "mpc stop",
+--     group = "widgets"
+-- }), awful.key({altkey, "Control"}, "Left", function()
+--     os.execute("mpc prev")
+--     beautiful.mpd.update()
+-- end, {
+--     description = "mpc prev",
+--     group = "widgets"
+-- }), awful.key({altkey, "Control"}, "Right", function()
+--     os.execute("mpc next")
+--     beautiful.mpd.update()
+-- end, {
+--     description = "mpc next",
+--     group = "widgets"
+-- }), awful.key({altkey}, "0", function()
+--     local common = {
+--         text = "MPD widget ",
+--         position = "top_middle",
+--         timeout = 2
+--     }
+--     if beautiful.mpd.timer.started then
+--         beautiful.mpd.timer:stop()
+--         common.text = common.text .. lain.util.markup.bold("OFF")
+--     else
+--         beautiful.mpd.timer:start()
+--         common.text = common.text .. lain.util.markup.bold("ON")
+--     end
+--     naughty.notify(common)
+-- end, {
+--     description = "mpc on/off",
+--     group = "widgets"
+-- }), 
+
+-- Copy primary to clipboard (terminals to gtk)
 awful.key({modkey}, "c", function()
     awful.spawn.with_shell("xsel | xsel -i -b")
 end, {
@@ -681,10 +691,12 @@ end, {
 end, {
     description = "close",
     group = "client"
-}), awful.key({modkey, "Control"}, "space", awful.client.floating.toggle, {
-    description = "toggle floating",
-    group = "client"
-}), awful.key({modkey, "Control"}, "Return", function(c)
+}), 
+-- awful.key({modkey, "Control"}, "space", awful.client.floating.toggle, {
+--     description = "toggle floating",
+--     group = "client"
+-- }), 
+awful.key({modkey, "Control"}, "Return", function(c)
     c:swap(awful.client.getmaster())
 end, {
     description = "move to master",
@@ -836,13 +848,24 @@ awful.rules.rules = { -- All clients will match this rule.
     properties = {
         floating = true
     }
-} -- Add titlebars to normal clients and dialogs
--- { rule_any = {type = { "normal", "dialog" }
---   }, properties = { titlebars_enabled = true }
--- },
--- Set Firefox to always map on the tag named "2" on screen 1.
--- { rule = { class = "Firefox" },
---   properties = { screen = 1, tag = "2" } },
+}, -- Add titlebars to normal clients and dialogs
+{
+    rule_any = {
+        type = {"normal", "dialog"}
+    },
+    properties = {
+        titlebars_enabled = false
+    }
+} -- Set Firefox to always map on the tag named "2" on screen 1.
+-- {
+--     rule = {
+--         class = "Firefox"
+--     },
+--     properties = {
+--         screen = 1,
+--         tag = "2"
+--     }
+-- }
 }
 
 -- }}}
@@ -862,51 +885,54 @@ client.connect_signal("manage", function(c)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
--- client.connect_signal("request::titlebars", function(c)
---     -- Custom
---     if beautiful.titlebar_fun then
---         beautiful.titlebar_fun(c)
---         return
---     end
+client.connect_signal("request::titlebars", function(c)
+    -- Custom
+    if beautiful.titlebar_fun then
+        beautiful.titlebar_fun(c)
+        return
+    end
 
---     -- Default
---     -- buttons for the titlebar
---     local buttons = mytable.join(
---         awful.button({ }, 1, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.move(c)
---         end),
---         awful.button({ }, 3, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.resize(c)
---         end)
---     )
+    -- Default
+    -- buttons for the titlebar
+    local buttons = mytable.join(awful.button({}, 1, function()
+        c:emit_signal("request::activate", "titlebar", {
+            raise = true
+        })
+        awful.mouse.client.move(c)
+    end), awful.button({}, 3, function()
+        c:emit_signal("request::activate", "titlebar", {
+            raise = true
+        })
+        awful.mouse.client.resize(c)
+    end))
 
---     awful.titlebar(c, { size = 16 }) : setup {
---         { -- Left
---             awful.titlebar.widget.iconwidget(c),
---             buttons = buttons,
---             layout  = wibox.layout.fixed.horizontal
---         },
---         { -- Middle
---             { -- Title
---                 align  = "center",
---                 widget = awful.titlebar.widget.titlewidget(c)
---             },
---             buttons = buttons,
---             layout  = wibox.layout.flex.horizontal
---         },
---         { -- Right
---             awful.titlebar.widget.floatingbutton (c),
---             awful.titlebar.widget.maximizedbutton(c),
---             awful.titlebar.widget.stickybutton   (c),
---             awful.titlebar.widget.ontopbutton    (c),
---             awful.titlebar.widget.closebutton    (c),
---             layout = wibox.layout.fixed.horizontal()
---         },
---         layout = wibox.layout.align.horizontal
---     }
--- end)
+    awful.titlebar(c, {
+        size = 16
+    }):setup{
+        { -- Left
+            awful.titlebar.widget.iconwidget(c),
+            buttons = buttons,
+            layout = wibox.layout.fixed.horizontal
+        },
+        { -- Middle
+            { -- Title
+                align = "center",
+                widget = awful.titlebar.widget.titlewidget(c)
+            },
+            buttons = buttons,
+            layout = wibox.layout.flex.horizontal
+        },
+        { -- Right
+            awful.titlebar.widget.floatingbutton(c),
+            awful.titlebar.widget.maximizedbutton(c),
+            awful.titlebar.widget.stickybutton(c),
+            awful.titlebar.widget.ontopbutton(c),
+            awful.titlebar.widget.closebutton(c),
+            layout = wibox.layout.fixed.horizontal()
+        },
+        layout = wibox.layout.align.horizontal
+    }
+end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 -- client.connect_signal("mouse::enter", function(c)
