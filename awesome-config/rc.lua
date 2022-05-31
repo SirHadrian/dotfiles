@@ -279,7 +279,7 @@ end, {
     description = "take a screenshot",
     group = "hotkeys"
 }), -- X screen locker
-awful.key({altkey, "Control"}, "l", function()
+awful.key({altkey, "Control", "Shift"}, "l", function()
     os.execute("xscreensaver-command -lock")
 end, {
     description = "lock screen",
@@ -955,5 +955,5 @@ end)
 beautiful.useless_gap = 8
 
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers")
+awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/NSFW")
 

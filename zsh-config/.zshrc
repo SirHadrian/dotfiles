@@ -119,9 +119,8 @@ alias l='ls -CF'
 alias ra='$terminal -- ranger'
 alias cmus='$terminal -- flatpak run io.github.cmus.cmus'
 alias minecraft='minecraft-launcher& disown ; exit'
-alias code='flatpak run com.visualstudio.code'
 alias wolf='flatpak run io.gitlab.librewolf-community'
-alias wa='nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers'
+alias wa='nitrogen --set-auto --no-recurse --random ~/Pictures/NSFW'
 
 #
 # # ex - archive extractor
