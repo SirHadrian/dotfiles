@@ -104,6 +104,10 @@ local cycle_prev = true -- cycle with only the previously focused client or all 
 local editor = os.getenv("EDITOR") or "nano"
 local browser = "flatpak run io.gitlab.librewolf-community"
 
+-- Bluetooth
+os.execute("rfkill block bluetooth")
+BLUESTATUS = false
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3" }
 awful.layout.layouts = { awful.layout.suit.tile, awful.layout.suit.tile.left, awful.layout.suit.tile.bottom,
@@ -268,7 +272,7 @@ globalkeys = mytable.join(-- Destroy all notifications
     }), -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function()
-        os.execute("screenshot")
+        os.execute("screenshot.lnk")
     end, {
         description = "take a screenshot",
         group = "hotkeys"
@@ -547,12 +551,33 @@ globalkeys = mytable.join(-- Destroy all notifications
     end, {
         description = "Min screen brightness",
         group = "hotkeys"
-    }), awful.key({ altkey, "Control", "Shift" }, "m", function()
+    }), awful.key({ altkey, "Control", "Shift" }, "9", function()
         os.execute("adjust-brightness.lnk --max")
     end, {
         description = "Max screen brightness",
         group = "hotkeys"
-    }), -- ALSA volume control
+    }),
+    awful.key({ altkey, "Control", "Shift" }, "m", function()
+        os.execute("adjust-brightness.lnk --mid")
+    end, {
+        description = "Mid screen brightness",
+        group = "hotkeys"
+    }),
+    -- Bluetooth toggle
+    awful.key({ altkey, "Control", "Shift" }, "b", function()
+        os.execute("rfkill toggle bluetooth")
+        if BLUESTATUS == false then
+            naughty.notify({ title = "Bluetooth", text = "Bluetooth is ON", icon="/home/sirhadrian/.config/awesome/themes/powerarrow-dark/icons/bluetooth.png"})
+            BLUESTATUS = true
+        else
+            naughty.notify({ title = "Bluetooth", text = "Bluetooth is OFF", icon="/home/sirhadrian/.config/awesome/themes/powerarrow-dark/icons/bluetooth.png"})
+            BLUESTATUS = false
+        end
+    end, {
+        description = "Bluetooth toggle ON/OFF",
+        group = "hotkeys"
+    }),
+    -- ALSA volume control
     awful.key({}, "#123", function()
         os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
         beautiful.volume.update()
@@ -695,51 +720,50 @@ end, {
 end, {
     description = "close",
     group = "client"
-}), -- awful.key({modkey, "Control"}, "space", awful.client.floating.toggle, {
-    --     description = "toggle floating",
-    --     group = "client"
-    -- }),
-    awful.key({ modkey, "Control" }, "Return", function(c)
-        c:swap(awful.client.getmaster())
-    end, {
-        description = "move to master",
-        group = "client"
-    }), awful.key({ modkey }, "o", function(c)
-        c:move_to_screen()
-    end, {
-        description = "move to screen",
-        group = "client"
-    }), awful.key({ modkey }, "t", function(c)
-        c.ontop = not c.ontop
-    end, {
-        description = "toggle keep on top",
-        group = "client"
-    }), awful.key({ modkey }, "n", function(c)
-        -- The client currently has the input focus, so it cannot be
-        -- minimized, since minimized clients can't have the focus.
-        c.minimized = true
-    end, {
-        description = "minimize",
-        group = "client"
-    }), awful.key({ modkey }, "m", function(c)
-        c.maximized = not c.maximized
-        c:raise()
-    end, {
-        description = "(un)maximize",
-        group = "client"
-    }), awful.key({ modkey, "Control" }, "m", function(c)
-        c.maximized_vertical = not c.maximized_vertical
-        c:raise()
-    end, {
-        description = "(un)maximize vertically",
-        group = "client"
-    }), awful.key({ modkey, "Shift" }, "m", function(c)
-        c.maximized_horizontal = not c.maximized_horizontal
-        c:raise()
-    end, {
-        description = "(un)maximize horizontally",
-        group = "client"
-    }))
+}), awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle, {
+    description = "toggle floating",
+    group = "client"
+}), awful.key({ modkey, "Control" }, "Return", function(c)
+    c:swap(awful.client.getmaster())
+end, {
+    description = "move to master",
+    group = "client"
+}), awful.key({ modkey }, "o", function(c)
+    c:move_to_screen()
+end, {
+    description = "move to screen",
+    group = "client"
+}), awful.key({ modkey }, "t", function(c)
+    c.ontop = not c.ontop
+end, {
+    description = "toggle keep on top",
+    group = "client"
+}), awful.key({ modkey }, "n", function(c)
+    -- The client currently has the input focus, so it cannot be
+    -- minimized, since minimized clients can't have the focus.
+    c.minimized = true
+end, {
+    description = "minimize",
+    group = "client"
+}), awful.key({ modkey }, "m", function(c)
+    c.maximized = not c.maximized
+    c:raise()
+end, {
+    description = "(un)maximize",
+    group = "client"
+}), awful.key({ modkey, "Control" }, "m", function(c)
+    c.maximized_vertical = not c.maximized_vertical
+    c:raise()
+end, {
+    description = "(un)maximize vertically",
+    group = "client"
+}), awful.key({ modkey, "Shift" }, "m", function(c)
+    c.maximized_horizontal = not c.maximized_horizontal
+    c:raise()
+end, {
+    description = "(un)maximize horizontally",
+    group = "client"
+}))
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
@@ -955,4 +979,4 @@ end)
 beautiful.useless_gap = 8
 
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/NSFW")
+awful.spawn.with_shell("nitrogen --set-zoom-fill --random ~/Pictures/SFW")
