@@ -120,6 +120,8 @@ alias ra='$terminal -- ranger'
 alias minecraft='minecraft-launcher& disown ; exit'
 alias wolf='flatpak run io.gitlab.librewolf-community'
 alias wa='nitrogen --set-auto --no-recurse --random ~/Pictures/NSFW'
+alias wbg='nitrogen --set-zoom-fill --no-recurse --random ~/Pictures/SFW'
+alias night='nohup redshift &> /dev/null &'
 
 #
 # # ex - archive extractor
