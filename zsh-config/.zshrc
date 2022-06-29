@@ -122,11 +122,13 @@ alias wolf='flatpak run io.gitlab.librewolf-community'
 alias wa='nitrogen --set-auto --no-recurse --random ~/Pictures/NSFW'
 alias wbg='nitrogen --set-zoom-fill --no-recurse --random ~/Pictures/SFW'
 alias night='nohup redshift &> /dev/null &'
-
+alias noblackscreen='xset s off; xset -dpms; xset s noblank'
+alias animgif='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- gifview -w WID -a'
+alias animvid='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 #
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
+# # extract - archive extractor
+# # usage: extract <file>
+extract ()
 {
   if [ -f $1 ] ; then
     case $1 in
@@ -141,7 +143,7 @@ ex ()
       *.zip)       unzip $1     ;;
       *.Z)         uncompress $1;;
       *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
     esac
   else
     echo "'$1' is not a valid file"
