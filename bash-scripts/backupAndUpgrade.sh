@@ -7,14 +7,16 @@ backup-system () {
 		echo "Error: No timeshift comment was supplied" >&2
 		return 1
 	fi
-	status=$(sudo timeshift --create --comments "$1")
+	sudo timeshift --create --comments "$1"
+	status=$?
 	echo "---BACKUP END---"
 	return $status
 }
 
 upgrade-system () {
 	echo "---UPGRADE START---"
-	status=$(sudo dnf upgrade -y)
+	sudo dnf upgrade -y
+	status=$?
 	echo "---UPGRADE END---"
 	return $status
 }
