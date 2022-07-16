@@ -1,5 +1,5 @@
 set guicursor=
-
+set expandtab
 :set number
 " :set relativenumber
 :set autoindent
@@ -20,6 +20,8 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'neoclide/coc.nvim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'jiangmiao/auto-pairs'
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 

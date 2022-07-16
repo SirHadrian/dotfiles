@@ -110,21 +110,22 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-terminal="gnome-terminal"
-
 # some more ls aliases
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
-alias ra='$terminal -- ranger'
+alias ra='ranger'
 alias minecraft='minecraft-launcher& disown ; exit'
-alias wolf='flatpak run io.gitlab.librewolf-community'
 alias wa='nitrogen --set-auto --no-recurse --random ~/Pictures/NSFW'
 alias wbg='nitrogen --set-zoom-fill --no-recurse --random ~/Pictures/SFW'
-alias night='nohup redshift &> /dev/null &'
 alias noblackscreen='xset s off; xset -dpms; xset s noblank'
 alias animgif='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- gifview -w WID -a'
 alias animvid='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+alias ..='cd ..'
+alias rm='rm -i'
+alias mv='mv -i'
+alias vi='nvim'
+
 #
 # # extract - archive extractor
 # # usage: extract <file>
@@ -149,3 +150,6 @@ extract ()
     echo "'$1' is not a valid file"
   fi
 }
+
+export PATH="$HOME/.local/bin:$PATH"
+
