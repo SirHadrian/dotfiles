@@ -122,6 +122,7 @@ alias wbg='nitrogen --set-zoom-fill --no-recurse --random ~/Pictures/SFW'
 alias noblackscreen='xset s off; xset -dpms; xset s noblank'
 alias animgif='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- gifview -w WID -a'
 alias animvid='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+alias animvid-gpu='nvidia-run.sh xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 alias ..='cd ..'
 
 #
