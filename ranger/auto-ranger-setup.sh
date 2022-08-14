@@ -1,6 +1,11 @@
 #!/bin/bash
 
-CONFIGDIR=$HOME'/.config/rangerTESTONLYDELETEAFTER'
+# Refresh pkg database
+sudo pacman -Syy
+
+[[ ! $(which ranger) ]] && sudo pacman -S --needed --noconfirm ranger
+
+CONFIGDIR=$HOME'/.config/ranger'
 
 echo $CONFIGDIR
 
@@ -10,14 +15,13 @@ cp rc.conf rifle.conf scope.sh $CONFIGDIR
 
 if [[ $(which pacman) ]]; then
     # Images thumbnails
-
     # For pictures preview
-    sudo pacman -S ueberzug
+    sudo pacman -S --needed --noconfirm ueberzug
 
     # For epub preview
     # Check if pip is installed
     if [[ ! $(which pip) ]]; then
-        sudo pacman -S python-pip
+        sudo pacman -S --needed --noconfirm python-pip
     fi
     # Install Pillow dependecy if not installed'
     if [[ $(python -c "import PIL") ]]; then
