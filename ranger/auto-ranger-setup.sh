@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Refresh pkg database
-sudo pacman -Syy
-
-[[ ! $(which ranger) ]] && sudo pacman -S --needed --noconfirm ranger
-
 CONFIGDIR=$HOME'/.config/ranger'
 
 echo $CONFIGDIR
@@ -14,6 +9,11 @@ echo $CONFIGDIR
 cp rc.conf rifle.conf scope.sh $CONFIGDIR
 
 if [[ $(which pacman) ]]; then
+    # Refresh pkg database
+    sudo pacman -Syy
+    # Check if ranger is installed
+    [[ ! $(which ranger) ]] && sudo pacman -S --needed --noconfirm ranger
+    
     # Images thumbnails
     # For pictures preview
     sudo pacman -S --needed --noconfirm ueberzug
