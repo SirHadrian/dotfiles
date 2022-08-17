@@ -30,6 +30,9 @@ if [[ $(which pacman) ]]; then
     # Build epub-thumbnailer from source and clean
     git clone https://github.com/marianosimone/epub-thumbnailer.git && sudo python epub-thumbnailer/install.py install && rm -rf epub-thumbnailer
 
+    # Video thumbnailer
+    sudo pacman -S --needed --noconfirm ffmpeg ffmpegthumbnailer
+
 elif [[ $(which dnf) ]]; then
     echo "TODO FEDORA"
 else
