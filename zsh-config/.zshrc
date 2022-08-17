@@ -15,6 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 #ZSH_THEME="robbyrussell"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
@@ -78,7 +79,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git firewalld zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,14 +117,14 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ra='ranger'
-alias minecraft='minecraft-launcher& disown ; exit'
-alias wa='nitrogen --set-auto --no-recurse --random ~/Pictures/NSFW'
-alias wbg='nitrogen --set-zoom-fill --no-recurse --random ~/Pictures/SFW'
-alias noblackscreen='xset s off; xset -dpms; xset s noblank'
-alias animgif='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- gifview -w WID -a'
-alias animvid='xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
-alias animvid-gpu='nvidia-run.sh xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/NSFW'
+alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/NSFW'
+alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW'
 alias ..='cd ..'
+alias ...='cd ../..'
+alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --right-of eDP-1'
+alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --rate 60.16 --primary'
+alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
 #
 # # extract - archive extractor
@@ -149,6 +150,3 @@ extract ()
     echo "'$1' is not a valid file"
   fi
 }
-
-export PATH="$HOME/.local/bin:$PATH"
-
