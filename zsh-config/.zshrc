@@ -125,6 +125,7 @@ alias ...='cd ../..'
 alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --right-of eDP-1'
 alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --rate 60.16 --primary'
 alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+alias noblackscreen='xset s off; xset -dpms; xset s noblank'
 
 #
 # # extract - archive extractor
