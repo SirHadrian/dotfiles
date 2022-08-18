@@ -16,7 +16,7 @@ Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
 " Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'kyazdani42/nvim-web-devicons' " Statusbar 2
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
-Plug 'jiangmiao/auto-pairs' " Closing brachets
+" Plug 'jiangmiao/auto-pairs' " Closing brachets
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'mbbill/undotree' " undo even if file was closed
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Search Files
@@ -30,7 +30,8 @@ Plug 'yggdroot/indentline' " See indentation levels
 Plug 'scrooloose/syntastic' " syntasctic hacks for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " For code completion
 Plug 'jparise/vim-graphql' " For syntax highlighting supports coc
-
+Plug 'chiel92/vim-autoformat' " Format code 
+Plug 'honza/vim-snippets' " Code snippets
 
 
 " set encoding=UTF-8
@@ -52,7 +53,13 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 nmap <F8> :TagbarToggle<CR>
+" Exit insert mode with ii
+inoremap ii <ESC>
 
+" Enable python support
+let g:python3_host_prog="/usr/bin/python"
+" Autoformat key
+noremap <F3> :Autoformat<CR>
 
 " Coc config
 " Some servers have issues with backup files, see #649.
