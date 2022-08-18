@@ -13,8 +13,7 @@ call plug#begin()
 
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-" Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'kyazdani42/nvim-web-devicons' " Statusbar 2
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 " Plug 'jiangmiao/auto-pairs' " Closing brachets
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
@@ -210,3 +209,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Change coc popup background color 
+highlight CocFloating ctermbg=black
