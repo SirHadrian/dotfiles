@@ -18,8 +18,6 @@ install_zsh() {
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
         cp .zshrc ~/.zshrc
-
-        source ~/.zshrc
     fi
 }
 
@@ -27,7 +25,7 @@ install_zsh() {
 defaultValue=Y
 read -p "Do you want to install zsh? (Y/n)" answer
 
-doInstall=$(answer:-$defaultValue)
+doInstall=${answer:-$defaultValue}
 
 case $doInstall in
 [Yy]) install_zsh ;;
