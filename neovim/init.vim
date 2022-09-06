@@ -24,13 +24,14 @@ Plug 'junegunn/gv.vim' " See commit log !require vim-figitive
 Plug 'Mofiqul/dracula.nvim' " Dracula theme
 Plug 'danilamihailov/beacon.nvim' " Cursor beacon for visibility 
 Plug 'mhinz/vim-startify' " Starting screen for nvim
-Plug 'tpope/vim-surround' " Surround : parentheses, brackets, quootes
+" Plug 'tpope/vim-surround' " Surround : parentheses, brackets, quootes
 Plug 'yggdroot/indentline' " See indentation levels
 Plug 'scrooloose/syntastic' " syntasctic hacks for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " For code completion
 Plug 'jparise/vim-graphql' " For syntax highlighting supports coc
 Plug 'chiel92/vim-autoformat' " Format code 
 Plug 'honza/vim-snippets' " Code snippets
+Plug '907th/vim-auto-save' " AutoSaveToggle
 
 
 " set encoding=UTF-8
