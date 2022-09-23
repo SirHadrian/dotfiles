@@ -112,38 +112,61 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# some more ls aliases
-alias la='ls -A'
-alias ra='ranger'
-alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/NSFW'
-alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/NSFW'
-alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW/Nature'
+# # Aliases
+#
+# Terminal
 alias ..='cd ..'
-alias ...='cd ../..'
-alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --right-of eDP-1'
-alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --primary'
-alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
-alias noblackscreen='xset s off; xset -dpms; xset s noblank'
-alias conheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
-alias disconheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
 alias ls='exa'
 alias ll='exa -l'
+alias cat='bat'
+alias ...='cd ../..'
+alias la='ls -A'
+alias ra='ranger'
 
-#
+# Nitrogen
+alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
+alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/po/NSFW'
+alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW/Nature'
+
+# HDMDI monitor
+alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --right-of eDP-1'
+alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --primary'
+
+# General settings
+alias noblackscreen='xset s off; xset -dpms; xset s noblank'
+
+# Live wallpaper
+alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+
+# Bluetooth headset
+alias conheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
+alias disconheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
+
+
+# # General Utils
+makedir(){
+    mkdir -p "$1" && cd "$1"
+}
+
+trash(){
+    [[ ! -d ~/.Trash ]] && mkdir ~/.Trash
+    mv "$@" ~/.Trash
+}
+
 # # extract - archive extractor
 # # usage: extract <file>
 extract ()
 {
     if [ -f $1 ] ; then
         case $1 in
-            *.tar.bz2)   tar xjf $1   ;;
-            *.tar.gz)    tar xzf $1   ;;
+            *.tar.bz2)   tar -xjvf $1   ;;
+            *.tar.gz)    tar -xzvf $1   ;;
             *.bz2)       bunzip2 $1   ;;
             *.rar)       unrar x $1     ;;
             *.gz)        gunzip $1    ;;
-            *.tar)       tar xf $1    ;;
-            *.tbz2)      tar xjf $1   ;;
-            *.tgz)       tar xzf $1   ;;
+            *.tar)       tar -xvf $1    ;;
+            *.tbz2)      tar -xjvf $1   ;;
+            *.tgz)       tar -xzvf $1   ;;
             *.zip)       unzip $1     ;;
             *.Z)         uncompress $1;;
             *.7z)        7z x $1      ;;
@@ -154,11 +177,13 @@ extract ()
     fi
 }
 
-makedir(){
-    mkdir -p "$1" && cd "$1"
+# # Git Utils
+# Aliases
+alias gst='git status'
+
+# Functions
+gitcmt(){
+    git add .
+    git commit -m "$1"
 }
 
-trash(){
-    [[ ! -d ~/.Trash ]] && mkdir ~/.Trash
-    mv "$@" ~/.Trash
-}
