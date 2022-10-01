@@ -182,7 +182,7 @@ extract ()
 alias gst='git status'
 
 # Functions
-gitcmt(){
+gcom(){
     git add .
     git commit -m "$1"
 }
