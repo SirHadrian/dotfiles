@@ -7,6 +7,7 @@ declare -A URLS
 URLS=(
   ["google"]="https://www.google.com/search?q="
   ["duckduckgo"]="https://www.duckduckgo.com/?q="
+  ["archwiki"]="https://wiki.archlinux.org/title/"
   ["yandex"]="https://yandex.ru/yandsearch?text="
   ["github"]="https://github.com/search?q="
   ["stackoverflow"]="http://stackoverflow.com/search?q="
