@@ -1,4 +1,0 @@
-SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
-@reboot chmod a+rw /sys/class/backlight/amdgpu_bl0/brightness
