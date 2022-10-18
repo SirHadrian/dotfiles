@@ -8,6 +8,7 @@ set expandtab
 :set smarttab
 :set softtabstop=4
 :set mouse=a
+:set ic
 set clipboard=unnamedplus
 set encoding=UTF-8
 
@@ -27,7 +28,7 @@ Plug 'mhinz/vim-startify' " Starting screen for nvim
 Plug 'yggdroot/indentline' " See indentation levels
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " For code completion
 Plug 'jparise/vim-graphql' " For syntax highlighting supports coc
-Plug 'chiel92/vim-autoformat' " Format code 
+" Plug 'chiel92/vim-autoformat' " Format code 
 Plug 'honza/vim-snippets' " Code snippets
 Plug '907th/vim-auto-save' " AutoSaveToggle
 
@@ -37,7 +38,7 @@ call plug#end()
 inoremap ii <ESC>
 
 " Autoformat key
-noremap <F3> :Autoformat<CR>
+" noremap <F3> :Autoformat<CR>
 
 " NerdTree keybinds
 " nnoremap <C-f> :NERDTreeFocus<CR>
