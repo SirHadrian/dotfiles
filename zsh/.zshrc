@@ -116,19 +116,20 @@ source $ZSH/oh-my-zsh.sh
 #
 # Terminal
 alias ..='cd ..'
-alias ls='exa'
-alias ll='exa -l'
-alias cat='bat'
 alias ...='cd ../..'
-alias la='ls -A'
+alias ls='exa'
+alias l='exa -l'
+alias la='exa -la'
+alias lr='exa -lR'
 alias ra='ranger'
+alias cat='bat'
 
 # Nitrogen
 alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
 alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/po/NSFW'
 alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW/Nature'
 
-# HDMDI monitor
+# HDMI monitor
 alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --right-of eDP-1'
 alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --primary'
 
