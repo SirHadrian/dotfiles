@@ -48,6 +48,9 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " Change coc popup background color 
 highlight CocFloating ctermbg=black
 
+" Change brackets highlight color
+hi MatchParen cterm=none ctermbg=white ctermfg=black
+
 syntax on
 set cursorline
 hi cursorline cterm=none term=none

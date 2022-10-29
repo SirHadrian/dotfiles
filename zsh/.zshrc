@@ -79,7 +79,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,6 +123,7 @@ alias la='exa -la'
 alias lr='exa -lR'
 alias ra='ranger'
 alias cat='bat'
+alias vs='vscodium . ; exit'
 
 # Nitrogen
 alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
