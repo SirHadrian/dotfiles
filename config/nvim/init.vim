@@ -16,10 +16,12 @@ call plug#begin()
 
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin' " NERDTree Git
+Plug 'nvim-lua/plenary.nvim'
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 " Plug 'jiangmiao/auto-pairs' " Closing brachets
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Search Files
 Plug 'Mofiqul/dracula.nvim' " Dracula theme
 Plug 'danilamihailov/beacon.nvim' " Cursor beacon for visibility 
@@ -34,6 +36,13 @@ Plug '907th/vim-auto-save' " AutoSaveToggle
 
 call plug#end()
 
+" Telescope shortcuts
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " Exit insert mode with ii
 inoremap ii <ESC>
 
@@ -46,15 +55,15 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 " Change coc popup background color 
-highlight CocFloating ctermbg=black
+"highlight CocFloating ctermbg=black
 
 " Change brackets highlight color
-hi MatchParen cterm=none ctermbg=white ctermfg=black
+"hi MatchParen cterm=none ctermbg=white ctermfg=black
 
 syntax on
 set cursorline
-hi cursorline cterm=none term=none
-highlight CursorLine term=none cterm=bold guibg=Yellow ctermbg=Black
+"hi cursorline cterm=none term=none
+"highlight CursorLine term=none cterm=bold guibg=Yellow ctermbg=Black
 
 
 " COC
@@ -208,3 +217,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" ColorScheme
+colorscheme dracula
