@@ -189,5 +189,11 @@ gcom(){
     git commit
 }
 
+# Neovide
+nv(){
+  neovide $1
+  exit
+}
+
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
