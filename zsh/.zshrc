@@ -189,3 +189,5 @@ gcom(){
     git commit
 }
 
+# Path
+export PATH="$HOME/.cargo/bin:$PATH"
