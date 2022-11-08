@@ -37,6 +37,9 @@ require("core.utils").load_mappings()
 
 -- Rund vim script
 vim.cmd([[
+
+  inoremap ii <ESC>
+  set relativenumber
   
     " Neovide settings
     if exists("g:neovide")
