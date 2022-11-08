@@ -191,7 +191,7 @@ gcom(){
 
 # Neovide
 nv(){
-  neovide $1
+  neovide --multigrid $1
   exit
 }
 
