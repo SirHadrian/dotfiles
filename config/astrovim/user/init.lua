@@ -136,6 +136,7 @@ local config = {
 
   -- Extend LSP configuration
   lsp = {
+    skip_setup = { "rust_analyzer" }, -- skip lsp setup because rust-tools will do it itself
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
@@ -238,6 +239,15 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      {
+        "simrat39/rust-tools.nvim",
+        after = "mason-lspconfig.nvim", -- make sure to load after mason-lspconfig
+        config = function()
+          require("rust-tools").setup {
+            server = astronvim.lsp.server_settings "rust_analyzer", -- get the server settings and built in capabilities/on_attach
+          }
+        end,
+      },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
@@ -260,6 +270,7 @@ local config = {
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
       -- ensure_installed = { "sumneko_lua" },
+      ensure_installed = { "rust_analyzer" },
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
