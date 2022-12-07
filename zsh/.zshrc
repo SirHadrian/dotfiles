@@ -209,6 +209,11 @@ nv(){
   exit
 }
 
+# Exec command in background
+p(){
+    "$@" &> /dev/null &
+}
+
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
 
