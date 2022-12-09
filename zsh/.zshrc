@@ -214,6 +214,9 @@ p(){
     "$@" &> /dev/null &
 }
 
+# Always open zsh menu on tab
+zstyle ':completion:::::default' menu yes select
+
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
 
