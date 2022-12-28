@@ -257,16 +257,20 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Ranger keep last visited directory
 rangercd () {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     if [[ -f "$tmp" ]]; then
-        dir="$(bat "$tmp")"
+        dir="$(cat "$tmp")"
         rm -f "$tmp"
         [[ -d "$dir" ]] && [[ "$dir" != "$(pwd)" ]] && cd "$dir"                                               
     fi
 }
 bindkey -s '^o' 'rangercd\n'
+
+# Cmus bindkey
+bindkey -s '^p' 'cmus\n'
 
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
