@@ -216,11 +216,17 @@ p(){
     "$@" &> /dev/null &
 }
 
+# Move file to Trash
+t(){
+    [[ -d ~/Trash ]] || mkdir ~/Trash
+    mv "$1" ~/Trash
+}
+
 # Always open zsh menu on tab
 zstyle ':completion:::::default' menu yes select
 # Autotab complete
 # Show hidden files
-_comp_options+=(globdots)		# Include hidden files.
+#_comp_options+=(globdots)		# Include hidden files.
 
 # Ranger keep last visited directory
 rangercd () {
@@ -240,4 +246,5 @@ bindkey -s '^p' 'cmus\n'
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-
+# Editor
+export EDITOR='nvim'
