@@ -7,7 +7,7 @@
 (cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+#cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
@@ -64,7 +64,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -137,7 +137,7 @@ alias la='exa -la'
 alias lr='exa -lR'
 alias ra='ranger'
 alias cat='bat'
-alias vs='vscodium . ; exit'
+#alias vs='vscodium . ; exit'
 
 # Nitrogen
 alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
@@ -155,8 +155,8 @@ alias noblackscreen='xset s off; xset -dpms; xset s noblank'
 alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
 # Bluetooth headset
-alias conheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
-alias disconheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
+#alias conheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
+#alias disconheadset='bluetoothctl connect 00:18:09:FE:CC:7F'
 
 # Systemctl
 alias sc='sudo systemctl'
@@ -229,7 +229,7 @@ zstyle ':completion:::::default' menu yes select
 #_comp_options+=(globdots)		# Include hidden files.
 
 # Ranger keep last visited directory
-rangercd () {
+racd () {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     if [[ -f "$tmp" ]]; then
@@ -238,7 +238,7 @@ rangercd () {
         [[ -d "$dir" ]] && [[ "$dir" != "$(pwd)" ]] && cd "$dir"                                               
     fi
 }
-bindkey -s '^o' 'rangercd\n'
+bindkey -s '^o' 'racd\n'
 
 # Cmus bindkey
 bindkey -s '^p' 'cmus\n'
