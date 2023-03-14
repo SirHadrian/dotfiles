@@ -238,10 +238,11 @@ racd () {
         [[ -d "$dir" ]] && [[ "$dir" != "$(pwd)" ]] && cd "$dir"                                               
     fi
 }
-bindkey -s '^o' 'racd\n'
 
-# Cmus bindkey
-bindkey -s '^p' 'cmus\n'
+# Keybinds
+bindkey -s '^o' 'racd\n' # ranger
+bindkey -s '^p' 'cmus\n' # cmus
+bindkey -s '^h' 'htop\n' # htop
 
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
