@@ -138,6 +138,7 @@ alias lr='exa -lR'
 alias ra='ranger'
 alias cat='bat'
 #alias vs='vscodium . ; exit'
+alias f='xdg-open "$(fzf)" &> /dev/null'
 
 # Nitrogen
 alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
@@ -145,11 +146,11 @@ alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/po/
 alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW/Nature'
 
 # HDMI monitor
-alias start-tv-extended-right='sudo xrandr --output HDMI-1-0 --mode 1920x1080 --right-of eDP-1'
-alias fix-screen='sudo xrandr --output eDP-1 --mode 1920x1080 --primary'
+alias start-HDMI='xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1 && sleep 2 && leftwm command SoftReload'
+alias stop-HDMI='xrandr --output HDMI-1-0 --off && sleep 2 && leftwm command SoftReload'
 
 # General settings
-alias noblackscreen='xset s off; xset -dpms; xset s noblank'
+alias noblackscreen='xset s off && xset -dpms'
 
 # Live wallpaper
 alias animvid-gpu='prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
@@ -243,6 +244,7 @@ racd () {
 bindkey -s '^o' 'racd\n' # ranger
 bindkey -s '^p' 'cmus\n' # cmus
 bindkey -s '^h' 'htop\n' # htop
+bindkey -s '^f' 'xdg-open "$(fzf)" &> /dev/null\n'  # file search
 
 # Path
 export PATH="$HOME/.cargo/bin:$PATH"
