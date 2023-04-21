@@ -1,7 +1,9 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    set fish_greeting
+    # set fish_greeting
 
+    set fish_greeting
+    
     # Aliases
     # alias automatically appends $argv, so that all parameters used with the alias are passed to the actual command.
     
@@ -28,6 +30,7 @@ if status is-interactive
     alias lr 'exa -lR'
     alias ra 'ranger'
     alias cat 'bat'
+    alias f 'xdg-open (fzf) &> /dev/null'
 
     # Systemctl
     alias sc 'sudo systemctl'
@@ -84,10 +87,11 @@ if status is-interactive
    # Key binds
    bind \cp 'cmus'
    bind \ch 'htop'
-   
+   bind \cf 'xdg-open (fzf) &> /dev/null'  # file search
+
    # Update PATH
    fish_add_path ~/.cargo/bin
 
-    # Init starship prompt (must be last)
-    starship init fish | source
+   # Init starship prompt (must be last)
+   starship init fish | source
 end
