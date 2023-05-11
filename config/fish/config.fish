@@ -32,9 +32,9 @@ if status is-interactive
     alias l 'exa -l'
     alias la 'exa -la'
     alias lr 'exa -lR'
-    alias ra 'ranger'
+    # alias ra 'ranger'
     alias cat 'bat'
-    alias f 'xdg-open (fzf) &> /dev/null'
+    alias ti 'date +%H:%M'
     
     # Systemctl
     alias sc 'sudo systemctl'
@@ -43,7 +43,7 @@ if status is-interactive
     alias gu 'ssh-add ~/.ssh/id_ed25519 && gitui'
     
     # Neovide
-    alias nv 'neovide --multigrid'
+    # alias nv 'neovide --multigrid'
     
     # ========================================================================================
     
@@ -100,6 +100,10 @@ if status is-interactive
             printf "%s" "The file does not exist"
         end
     end
+
+    function f --description "Search and open files"
+        xdg-open (fzf) &> /dev/null &
+    end
     
     # ========================================================================================
     
@@ -107,7 +111,6 @@ if status is-interactive
     
     bind \cp 'cmus'
     bind \ch 'htop'
-    bind \cf 'xdg-open (fzf) &> /dev/null'  # file search
     bind \ee 'nvim'
     
     # ========================================================================================
