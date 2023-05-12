@@ -34,7 +34,7 @@ if status is-interactive
     alias lr 'exa -lR'
     # alias ra 'ranger'
     alias cat 'bat'
-    alias ti 'date +%H:%M'
+    alias ti 'date +"%H : %M" | figlet -f standard'
     
     # Systemctl
     alias sc 'sudo systemctl'
@@ -57,7 +57,7 @@ if status is-interactive
      if ! test -d ~/Trash
          mkdir ~/Trash
      end
-     mv "$argv" ~/Trash
+     mv $argv ~/Trash
     end 
     
     function p --description "Run a program in the background silently"
@@ -114,6 +114,8 @@ if status is-interactive
     bind \ee 'nvim'
     
     # ========================================================================================
+    
+    date +"%H : %M" | figlet -f standard
     
     # Update PATH
     fish_add_path ~/.cargo/bin
