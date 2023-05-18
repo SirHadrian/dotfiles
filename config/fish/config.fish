@@ -34,7 +34,7 @@ if status is-interactive
     alias lr 'exa -lR'
     # alias ra 'ranger'
     alias cat 'bat'
-    alias ti 'date +"%H : %M" | figlet -f standard'
+    alias ti 'date +"%H : %M" | figlet -f standard | lolcat -r'
     
     # Systemctl
     alias sc 'sudo systemctl'
@@ -43,7 +43,7 @@ if status is-interactive
     alias gu 'ssh-add ~/.ssh/id_ed25519 && gitui'
     
     # Neovide
-    # alias nv 'neovide --multigrid'
+    alias nv 'neovide --multigrid'
     
     # ========================================================================================
     
@@ -115,7 +115,7 @@ if status is-interactive
     
     # ========================================================================================
     
-    date +"%H : %M" | figlet -f standard
+    date +"%H : %M" | figlet -f standard | lolcat -r
     
     # Update PATH
     fish_add_path ~/.cargo/bin
