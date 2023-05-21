@@ -35,6 +35,7 @@ if status is-interactive
     # alias ra 'ranger'
     alias cat 'bat'
     alias ti 'date +"%H : %M" | figlet -f standard | lolcat -r'
+    alias z 'zoxide'
     
     # Systemctl
     alias sc 'sudo systemctl'
