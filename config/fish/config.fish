@@ -35,7 +35,6 @@ if status is-interactive
     # alias ra 'ranger'
     alias cat 'bat'
     alias ti 'date +"%H : %M" | figlet -f standard | lolcat -r'
-    alias z 'zoxide'
     
     # Systemctl
     alias sc 'sudo systemctl'
@@ -121,6 +120,8 @@ if status is-interactive
     # Update PATH
     fish_add_path ~/.cargo/bin
     
+    # Init zoxide (cd)
+    zoxide init fish | source
     # Init starship prompt (must be last)
     starship init fish | source
 
