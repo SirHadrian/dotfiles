@@ -1,0 +1,37 @@
+/* For styling the rendered Markdown */
+body {
+    font-size: 16px;
+   /* sets body text font size in pixels */
+   /* sets body text font colour */
+    font-family: "CaskaydiaCove Nerd Font Mono";
+    color: #e7b128 !important;
+}
+
+.resource-icon {
+    display: none;
+}
+
+li {
+    color: #c2ab75 !important;
+}
+
+a {
+    color: #079bf3 !important;
+}
+
+h1 h2 h3 h4 h5 {
+    color: #09c8af !important;
+}
+
+.inline-code {
+    color: #abdf10 !important;
+}
+
+blockquote {
+    color: #ffc274 !important;
+    border-left: 4px solid rgb(120 102 7);
+}
+
+img {
+    max-width: 70%;
+}
