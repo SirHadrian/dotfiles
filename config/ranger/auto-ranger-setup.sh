@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 install_ranger() {
 	CONFIGDIR=$HOME'/.config/ranger'
@@ -7,9 +7,16 @@ install_ranger() {
 
 	cp rc.conf rifle.conf scope.sh "$CONFIGDIR"
 
-	if [[ -x $(command -v pacman) ]]; then
-		# Refresh pkg database
-		#sudo pacman -Syy
+	if [ -f /etc/os-release ]; then
+		# freedesktop.org and systemd
+		source /etc/os-release
+		OS=$ID
+	else
+		printf "%s" "Could not detect distro"
+		exit 1
+	fi
+
+	if [[ "$OS" == "archlinux" ]]; then
 		# Check if ranger is installed
 		[[ -x $(command -v ranger) ]] || sudo pacman -S --needed --noconfirm ranger
 
@@ -24,20 +31,36 @@ install_ranger() {
 		# Install Pillow dependecy if not installed'
 		[[ $(python -c "import PIL") ]] && pip install Pillow
 
-		# Build epub-thumbnailer from source and clean
-		git clone https://github.com/marianosimone/epub-thumbnailer.git && sudo python epub-thumbnailer/install.py install && rm -rf epub-thumbnailer
-
 		# Video thumbnailer
 		sudo pacman -S --needed --noconfirm ffmpeg ffmpegthumbnailer
 
-		# Ranger icons
-		git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-		echo "default_linemode devicons" >>"$CONFIGDIR"/rc.conf
+	elif [[ "$OS" == "fedora" ]]; then
+		# Check if ranger is installed
+		[[ -x $(command -v ranger) ]] || sudo dnf install -y ranger
 
-	else
-		echo "Could not execute pacman"
-		exit 1
+		# Images thumbnails
+		# For pictures preview build ueberzugpp manually
+		# https://github.com/jstkdng/ueberzugpp
+
+		# For epub preview
+		# Check if pip is installed
+		[[ -x $(command pip) ]] || sudo dnf install -y python-pip
+
+		# Install Pillow dependecy if not installed'
+		[[ $(python -c "import PIL") ]] && pip install Pillow
+
+		# Video thumbnailer
+		sudo dnf install -y ffmpeg ffmpegthumbnailer
 	fi
+
+	# Build epub-thumbnailer from source and clean
+	# Install dependecy globaly with python -m pip install Pillow
+	git clone https://github.com/marianosimone/epub-thumbnailer.git && sudo python epub-thumbnailer/install.py install && rm -rf epub-thumbnailer
+
+	# Ranger icons
+	git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+	echo "default_linemode devicons" >>"$CONFIGDIR"/rc.conf
+
 }
 
 # Ask for confirmation
