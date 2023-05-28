@@ -18,7 +18,6 @@ while $loop; do
 	clear
 
 	declare -a options=("${configs[0]} ${selected[0]}" "${configs[1]} ${selected[1]}" "Done")
-
 	select i in "${options[@]}"; do
 		case "$i" in
 		"alacritty ${selected[0]}")
@@ -34,7 +33,6 @@ while $loop; do
 			break
 			;;
 		*)
-			loop=false
 			break
 			;;
 		esac

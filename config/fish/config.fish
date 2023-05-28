@@ -32,7 +32,7 @@ if status is-interactive
     alias l 'exa -l'
     alias la 'exa -la'
     alias lr 'exa -lR'
-    # alias ra 'ranger'
+    alias ra 'ranger'
     alias cat 'bat'
     alias ti 'date +"%H : %M" | figlet -f standard | lolcat -r'
     
@@ -44,6 +44,9 @@ if status is-interactive
     
     # Neovide
     alias nv 'neovide --multigrid'
+
+    # Animated background
+    alias animvid-gpu 'prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
     
     # ========================================================================================
     
