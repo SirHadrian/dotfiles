@@ -6,8 +6,6 @@ if status is-interactive
     
     set -gx EDITOR nvim
 
-    # Activate vi mode
-    fish_vi_key_bindings
     # ========================================================================================
     
     # ALIASES
