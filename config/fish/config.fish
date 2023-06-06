@@ -5,7 +5,9 @@ if status is-interactive
     set fish_greeting
     
     set -gx EDITOR nvim
-    
+
+    # Activate vi mode
+    fish_vi_key_bindings
     # ========================================================================================
     
     # ALIASES
@@ -106,6 +108,10 @@ if status is-interactive
 
     function f --description "Search and open files"
         xdg-open (fzf) &> /dev/null &
+    end
+
+    function scmd --description "Search history file for a command"
+        history | fzf | read -l result && commandline -rb $result
     end
     
     # ========================================================================================
