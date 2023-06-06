@@ -111,7 +111,11 @@ if status is-interactive
     end
 
     function scmd --description "Search history file for a command"
-        history | fzf | read -l result && commandline -rb $result
+        history | fzf | read -l result 
+        
+        if test $result
+            commandline -rb $result
+        end
     end
     
     # ========================================================================================
