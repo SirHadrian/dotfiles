@@ -6,6 +6,9 @@ if status is-interactive
     
     set -gx EDITOR nvim
 
+    fish_vi_key_bindings
+    #fish_default_key_bindings
+    
     # ========================================================================================
     
     # ALIASES
@@ -120,9 +123,9 @@ if status is-interactive
     
     # KEYBINDINGS
     
-    bind \cp 'cmus'
-    bind \ch 'htop'
-    bind \ee 'nvim'
+    # bind \cp 'cmus'
+    # bind \ch 'htop'
+    # bind \ee 'nvim'
     
     # ========================================================================================
     
