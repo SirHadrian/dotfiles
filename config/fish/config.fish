@@ -115,7 +115,7 @@ if status is-interactive
         xdg-open (fzf) &> /dev/null &
     end
 
-    function scmd --description "Search history file for a command"
+    function hi --description "Search history file for a command"
         history | fzf | read -l result 
         
         if test $result
@@ -136,7 +136,7 @@ if status is-interactive
     date +"%H : %M" | figlet -f standard | lolcat -r
     
     # Update PATH
-    fish_add_path ~/.cargo/bin
+    fish_add_path ~/.cargo/bin ~/.ghcup/bin ~/Downloads/AppImages
     
     # Init zoxide (cd)
     zoxide init fish | source
