@@ -28,9 +28,8 @@ install_ranger() {
 		# For epub preview
 		# Check if pip is installed
 		[[ -x $(command pip) ]] || sudo pacman -S --needed --noconfirm python-pip
-
 		# Install Pillow dependecy if not installed'
-		[[ $(python -c "import PIL") ]] && pip install Pillow
+		[[ $(python -c "import PIL") ]] && sudo pacman -S --needed --noconfirm python-pillow
 
 		# Video thumbnailer
 		sudo pacman -S --needed --noconfirm ffmpeg ffmpegthumbnailer
