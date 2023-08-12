@@ -3,7 +3,7 @@
 install_ranger() {
 	CONFIGDIR=$HOME'/.config/ranger'
 
-	[[ ! -d $CONFIGDIR ]] && mkdir "$CONFIGDIR"
+	[[ ! -d $CONFIGDIR ]] && mkdir -p "$CONFIGDIR"
 
 	cp rc.conf rifle.conf scope.sh "$CONFIGDIR"
 
@@ -16,7 +16,7 @@ install_ranger() {
 		exit 1
 	fi
 
-	if [[ "$OS" == "archlinux" ]]; then
+	if [[ "$OS" == "arch" ]]; then
 		# Check if ranger is installed
 		[[ -x $(command -v ranger) ]] || sudo pacman -S --needed --noconfirm ranger
 
