@@ -22,7 +22,8 @@ install_ranger() {
 
 		# Images thumbnails
 		# For pictures preview
-		sudo pacman -S --needed --noconfirm ueberzug
+		# NO MORE MANTAINED USE THE AUR PACKAGE
+		# sudo pacman -S --needed --noconfirm ueberzug
 
 		# For epub preview
 		# Check if pip is installed
