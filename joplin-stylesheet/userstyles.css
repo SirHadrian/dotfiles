@@ -19,8 +19,20 @@ a {
     color: #079bf3 !important;
 }
 
-h1 h2 h3 h4 h5 {
+h4 h5 {
     color: #09c8af !important;
+}
+
+h1 {
+    color: #f28a02 !important;
+}
+
+h2 {
+    color: #!important;
+}
+
+h3 {
+    color: #10947e !important;
 }
 
 .inline-code {
