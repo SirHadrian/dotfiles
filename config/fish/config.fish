@@ -28,6 +28,8 @@ if status is-interactive
   # HDMI monitor
   # alias start-HDMI 'xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1 && sleep 2 && leftwm command SoftReload'
   # alias stop-HDMI 'xrandr --output HDMI-1-0 --off && sleep 2 && leftwm command SoftReload'
+  alias start-HDMI 'xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1'
+  alias stop-HDMI 'xrandr --output HDMI-1-0 --off'
 
   # Terminal
   alias .. 'cd ..'
