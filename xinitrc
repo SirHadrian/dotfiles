@@ -44,6 +44,9 @@ session=${1:-i3}
 
 case $session in
   i3 | i3wm) 
+    export XDG_CURRENT_DESKTOP=KDE
+    export XDG_SESSION_DESKTOP=KDE 
+    export KDE_SESSION_VERSION=5
     exec i3
     ;;
   kde | plasma) 
