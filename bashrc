@@ -36,6 +36,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='exa'
 alias l='exa -l'
+alias ll='exa -l'
 alias la='exa -la'
 alias lr='exa -lR'
 # alias ra='ranger'
@@ -72,4 +73,4 @@ function makedir {
 eval "$(zoxide init bash)"
 
 # Starship prompt
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
