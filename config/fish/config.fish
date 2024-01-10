@@ -28,8 +28,6 @@ if status is-interactive
   # HDMI monitor
   # alias start-HDMI 'xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1 && sleep 2 && leftwm command SoftReload'
   # alias stop-HDMI 'xrandr --output HDMI-1-0 --off && sleep 2 && leftwm command SoftReload'
-  alias start-HDMI 'xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1'
-  alias stop-HDMI 'xrandr --output HDMI-1-0 --off'
 
   # Terminal
   alias .. 'cd ..'
@@ -167,7 +165,7 @@ if status is-interactive
   # bind --mode insert \e1 'librewolf &>/dev/null &; commandline -f repaint'
   bind --mode insert \ey 'flatpak run io.gitlab.librewolf-community &>/dev/null &; commandline -f repaint'
   bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
-  bind --mode insert \et 'dolphin . &>/dev/null &; commandline -f repaint'
+  bind --mode insert \et 'dolphin &>/dev/null &; commandline -f repaint'
   bind --mode insert --sets-mode default kj 'commandline -f repaint'
   # bind --mode insert --sets-mode default jj 'commandline -f repaint'
   bind --mode insert --sets-mode default kk 'commandline -f repaint'
