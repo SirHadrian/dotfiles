@@ -38,7 +38,7 @@ if status is-interactive
   alias lr 'exa -lR'
   alias r 'ranger'
   alias cat 'bat'
-  alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
+  # alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
   alias j 'jobs'
 
   # Systemctl
