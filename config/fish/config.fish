@@ -23,6 +23,7 @@ if status is-interactive
 
   # X11 settings
   alias noblackscreen 'xset s off; xset -dpms; xset s noblank'
+  alias screenoff 'xset dpms force off'
   alias sx 'startx ~/.xinitrc'
 
   # HDMI monitor
@@ -41,8 +42,9 @@ if status is-interactive
   # alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
   alias j 'jobs'
 
-  # Systemctl
+  # Sudo
   alias sc 'sudo systemctl'
+  alias sp 'sudo pacman'
 
   # Start ssh agent with key
   alias gu 'ssh-add ~/.ssh/id_ed25519 && gitui'
@@ -59,7 +61,7 @@ if status is-interactive
   alias animvid-gpu 'prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
   # Brightness
-  alias b 'light -S' 
+  alias b 'light -S'
 
   # Bluetoothctl
   alias bl 'bluetoothctl'
@@ -84,7 +86,7 @@ if status is-interactive
       mkdir ~/Trash
     end
     mv $argv ~/Trash
-  end 
+  end
 
   function p --description "Run a program in the background silently"
     $argv &> /dev/null &
@@ -111,7 +113,7 @@ if status is-interactive
           tar -xvf "$argv"
         case "*.tbz2"
           tar -xjvf "$argv"
-        case "*.tgz" 
+        case "*.tgz"
           tar -xzvf "$argv"
         case "*.zip"
           unzip "$argv"
@@ -132,7 +134,7 @@ if status is-interactive
   end
 
   function hi --description "Search history file for a command"
-    history | fzf | read -l result 
+    history | fzf | read -l result
 
     if test $result
       commandline -rb $result
@@ -141,16 +143,16 @@ if status is-interactive
 
   function ra --description "Ranger change dir"
 
-    set tempfile '/tmp/chosendir'                                                  
-    ranger --choosedir=$tempfile (pwd)                                    
+    set tempfile '/tmp/chosendir'
+    ranger --choosedir=$tempfile (pwd)
 
-    if test -f $tempfile                                                           
-      if [ (cat $tempfile) != (pwd) ]                                            
-        cd (cat $tempfile)                                                       
-      end                                                                        
-    end                                                                            
+    if test -f $tempfile
+      if [ (cat $tempfile) != (pwd) ]
+        cd (cat $tempfile)
+      end
+    end
 
-    rm -f $tempfile                                                                
+    rm -f $tempfile
 
   end
 
