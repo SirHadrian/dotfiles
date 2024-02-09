@@ -88,7 +88,9 @@ if status is-interactive
         # Bluetoothctl
 
         function bl --description "Bluetooth control"
-                if test $argv = "d"
+                if test -z $argv
+                        bluetoothctl show
+                else if test $argv = "d"
                         bluetoothctl disconnect
                 else if test $argv = "c"
                         bluetoothctl connect 00:18:09:FE:CC:7F
@@ -142,6 +144,8 @@ if status is-interactive
                         switch "$argv"
                                 case "*.tar.gz"
                                         tar -xzvf "$argv"
+                                case "*.tar.xz"
+                                        tar -xJvf "$argv"
                                 case "*.bz2"
                                         bunzip2 "$argv"
                                 case "*.rar"

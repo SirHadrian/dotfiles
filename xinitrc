@@ -36,23 +36,26 @@ fi
 # USER
 
 usage(){
-  echo "Options: i3, i3wm, kde, plasma"
+  echo "Options: i3, i3wm, left, leftwm, kde, plasma"
   return
 }
 
-session=${1:-i3}
+session=${1:-i3wm}
 
 case $session in
-  i3 | i3wm) 
+  i3 | i3wm)
     export XDG_CURRENT_DESKTOP=KDE
-    export XDG_SESSION_DESKTOP=KDE 
+    export XDG_SESSION_DESKTOP=KDE
     export KDE_SESSION_VERSION=5
     exec i3
     ;;
-  kde | plasma) 
+  left | leftwm)
+    exec leftwm
+    ;;
+  kde | plasma)
     exec startplasma-x11
     ;;
-  *) 
+  *)
     echo "Unknown option"
     usage >&2
     exit 1
