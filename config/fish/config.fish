@@ -120,7 +120,7 @@ if status is-interactive
                 if ! test -d ~/Trash
                         mkdir ~/Trash
                 end
-                mv $argv ~/Trash
+                mv -f $argv ~/Trash
         end
 
         function p --description "Run a program in the background silently"
