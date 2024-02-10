@@ -19,7 +19,7 @@ $jobs\
 $custom\
 $character
 """
- 
+
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 60
 
@@ -46,9 +46,9 @@ when = ''' test -n "$RANGER_LEVEL" '''
 format = '[ $output ](red bold)'
 
 [battery]
-full_symbol = ' '
-charging_symbol = ' '
-discharging_symbol = ' '
+full_symbol = '󰁹 '
+charging_symbol = '󰂄 '
+discharging_symbol = '󱊣 '
 
 [jobs]
 style = 'bold blue'
@@ -65,13 +65,11 @@ style = 'bold red'
 [[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
 threshold = 70
 style = 'bold yellow'
-discharging_symbol = ' '
 # when capacity is over 30%, the battery indicator will not be displayed
 
 [[battery.display]] # 'bold yellow' style and 💦 symbol when capacity is between 10% and 30%
 threshold = 100
 style = 'bold green'
-discharging_symbol = ' '
 
 [character]
 success_symbol = "[λ](green bold)"
