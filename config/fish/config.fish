@@ -41,6 +41,7 @@ if status is-interactive
         alias cat 'bat'
         # alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
         alias j 'jobs'
+        alias jj 'kill (jobs -p)'
 
         # Sudo
         alias sc 'sudo systemctl'
@@ -202,7 +203,7 @@ if status is-interactive
         # bind --mode insert \e1 'librewolf &>/dev/null &; commandline -f repaint'
         bind --mode insert \ey 'flatpak run io.gitlab.librewolf-community &>/dev/null &; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
-        bind --mode insert \et 'dolphin &>/dev/null &; commandline -f repaint'
+        bind --mode insert \et 'dolphin . &>/dev/null &; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
