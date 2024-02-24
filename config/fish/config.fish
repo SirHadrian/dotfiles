@@ -41,7 +41,7 @@ if status is-interactive
         alias cat 'bat'
         # alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
         alias j 'jobs'
-        alias jj 'kill (jobs -p)'
+        alias jj 'kill (jobs -p); commandline -f repaint'
 
         # Sudo
         alias sc 'sudo systemctl'
