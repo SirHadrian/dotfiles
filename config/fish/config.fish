@@ -22,8 +22,8 @@ if status is-interactive
         alias glog 'git log --oneline --decorate --graph'
 
         # X11 settings
-        alias noblackscreen 'xset s off; xset -dpms; xset s noblank'
-        alias screenoff 'xset dpms force off'
+        alias noblackscreen 'xset s off; xset -dpms'
+        alias screenoff 'sleep 2; xset dpms force off'
         alias sx 'startx ~/.xinitrc'
 
         # HDMI monitor
