@@ -11,8 +11,14 @@ PS1='[\u@\h \W]\$ '
 # Default editor
 export EDITOR=nvim
 
+# Emacs keybindings
+# set -o emacs
+
+# Vim keybindings
+# set -o vi
+
 # User
-if [ -n "$RANGER_LEVEL" ]; then 
+if [ -n "$RANGER_LEVEL" ]; then
     export PS1="[ranger]$PS1"
 fi
 
@@ -62,11 +68,11 @@ alias lob='lobster --rofi -i'
 
 # Functions
 function p {
-    "$@" &> /dev/null & 
+    "$@" &> /dev/null &
 }
 
 function makedir {
-    mkdir -p "$1" && cd "$1" || exit 1 
+    mkdir -p "$1" && cd "$1" || exit 1
 }
 
 # Zoxide
