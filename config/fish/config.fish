@@ -82,7 +82,7 @@ if status is-interactive
                 if test -z $argv
                         brightnessctl get
                 else
-                        brightnessctl --device="amdgpu_bl1" set $argv%
+                        brightnessctl --device="amdgpu_bl2" set $argv%
                 end
         end
 
