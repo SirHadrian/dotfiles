@@ -1,0 +1,12 @@
+# Examples for vim-like menu bindings on a qwerty keyboard:
+menu_parent h Left
+menu_child  l Right
+menu_down   j Down
+menu_up     k Up
+menu_select space Return
+
+# Same for image navigation ...
+next_img j Right space
+prev_img k Left BackSpace
+
+remove
