@@ -192,6 +192,10 @@ if status is-interactive
                 rm -f $tempfile
         end
 
+        function fehc --description "Custom feh command"
+                feh -g 1920x1080 --auto-zoom --scale-down --image-bg black --action1 "gio trash %F" -- "$argv"
+        end
+
         # ========================================================================================
 
         # KEYBINDINGS
