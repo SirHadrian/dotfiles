@@ -21,7 +21,7 @@ $character
 """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 60
+scan_timeout = 100
 
 # Allow commands to execute longer
 command_timeout = 100
