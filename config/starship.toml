@@ -106,7 +106,7 @@ staged = '[++\($count\)](green)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bright-white"
-format = '[$time]($style) '
+format = '[ $time]($style) '
 
 [cmd_duration]
 min_time = 500
