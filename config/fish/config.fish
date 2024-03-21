@@ -172,7 +172,7 @@ if status is-interactive
         end
 
         function hi --description "Search history file for a command"
-                history | fzf | read -l result
+                history | fzf --no-sort | read -l result
 
                 if test $result
                         commandline -rb $result
@@ -204,10 +204,7 @@ if status is-interactive
         bind --mode insert \em 'cmus; commandline -f repaint'
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim; commandline -f repaint'
-        # bind --mode insert \e1 'librewolf &>/dev/null &; commandline -f repaint'
-        bind --mode insert \ey 'flatpak run io.gitlab.librewolf-community &>/dev/null &; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
-        bind --mode insert \et 'dolphin . &>/dev/null &; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
