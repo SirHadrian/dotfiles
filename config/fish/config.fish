@@ -117,23 +117,8 @@ if status is-interactive
                 xclip -selection c
         end
 
-        function t --description "Send file to trash"
-                if ! test -d ~/Trash
-                        mkdir ~/Trash
-                end
-                mv -f $argv ~/Trash
-        end
-
         function p --description "Run a program in the background silently"
                 $argv &> /dev/null &
-        end
-
-        function o --description "Open a file with the default application"
-                xdg-open "$argv" &> /dev/null &
-        end
-
-        function f --description "Search and open files"
-                xdg-open (fzf) &> /dev/null &
         end
 
         function makedir --description "Make a new directory and cd into it"
@@ -205,6 +190,7 @@ if status is-interactive
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
+        bind --mode insert \et 'dolphin . &>/dev/null &; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
