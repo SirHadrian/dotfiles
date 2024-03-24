@@ -190,7 +190,6 @@ if status is-interactive
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
-        bind --mode insert \et 'dolphin . &>/dev/null &; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
