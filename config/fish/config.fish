@@ -17,9 +17,9 @@ if status is-interactive
         # alias automatically appends $argv, so that all parameters used with the alias are passed to the actual command.
 
         # Git
-        alias gst 'git status'
+        alias gs 'git status'
         alias gcl 'git clone'
-        alias glog 'git log --oneline --decorate --graph'
+        alias gl 'git log --oneline --decorate --graph'
         alias gp 'git push'
         alias gd 'git diff'
         alias ga 'git add .'
