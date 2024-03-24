@@ -20,6 +20,10 @@ if status is-interactive
         alias gst 'git status'
         alias gcl 'git clone'
         alias glog 'git log --oneline --decorate --graph'
+        alias gp 'git push'
+        alias gd 'git diff'
+        alias ga 'git add .'
+        alias gc 'git commit'
 
         # X11 settings
         alias noblackscreen 'xset s off; xset -dpms'
@@ -39,7 +43,6 @@ if status is-interactive
         alias lr 'exa -lR'
         alias r 'ranger'
         alias cat 'bat'
-        # alias ti 'date +"%H : %M" | figlet -f standard | lolcat'
         alias j 'jobs'
         alias jj 'kill (jobs -p); commandline -f repaint'
 
@@ -47,16 +50,12 @@ if status is-interactive
         alias sc 'sudo systemctl'
         alias sp 'sudo pacman'
 
-        # Start ssh agent with key
-        alias gu 'ssh-add ~/.ssh/id_ed25519 && gitui'
-
         # Neovide
-        # alias nv 'neovide --multigrid'
         alias v 'neovide --maximized'
         alias vv 'neovide --maximized .'
         # Neovim
-        alias nv 'nvim'
-        alias nvv 'nvim .'
+        alias n 'nvim'
+        alias nn 'nvim .'
 
         # Animated background
         alias animvid-gpu 'prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
@@ -103,9 +102,6 @@ if status is-interactive
                         bluetoothctl power off
                 end
         end
-
-        # Lazygit
-        alias lg 'lazygit'
 
         # ========================================================================================
 
@@ -198,10 +194,8 @@ if status is-interactive
 
         # ========================================================================================
 
-        #date +"%H : %M" | figlet -f standard | lolcat
-
         # Update PATH
-        fish_add_path ~/.cargo/bin ~/.ghcup/bin ~/Downloads/AppImages
+        fish_add_path ~/.cargo/bin ~/.ghcup/bin
 
         # Init zoxide (cd)
         zoxide init fish | source
