@@ -23,7 +23,9 @@ if status is-interactive
         alias gp 'git push'
         alias gd 'git diff'
         alias ga 'git add .'
-        alias gc 'git commit'
+        alias gco 'git commit'
+        alias gb 'git branch'
+        alias gc 'git checkout'
 
         # X11 settings
         alias noblackscreen 'xset s off; xset -dpms'
