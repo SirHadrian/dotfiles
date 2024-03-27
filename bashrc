@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PS1='$([ \j -gt 0 ] && echo [\j])[\u@\h \W]\$ '
+
 # Default editor
 export EDITOR=nvim
 
