@@ -60,7 +60,7 @@ if status is-interactive
         alias nn 'nvim .'
 
         # Trash
-        alias emptytrash 'rm -rfv ~/.local/share/Trash/'
+        alias emptytrash 'rm -rfv ~/.local/share/Trash/*'
 
         # Animated background
         alias animvid-gpu 'prime-run xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
