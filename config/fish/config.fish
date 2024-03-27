@@ -64,7 +64,7 @@ if status is-interactive
 
         # Brightness
 
-        function kl --description "Keyboard lead control"
+        function kl --description "Keyboard led control"
                 if test -z $argv
                         set -f led (brightnessctl --device="platform::kbd_backlight" get)
                         if test $led = "1"
@@ -155,7 +155,7 @@ if status is-interactive
         end
 
         function hi --description "Search history file for a command"
-                history | fzf --no-sort | read -l result
+                history | fzf --no-sort --exact --no-mouse | read -l result
 
                 if test $result
                         commandline -rb $result
