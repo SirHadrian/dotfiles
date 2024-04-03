@@ -66,9 +66,6 @@ if status is-interactive
         # Animated background
         alias animvid-gpu 'xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
-        # Zathura
-        alias za 'zathura ( find ~/Documents/Library/ -type f | fzf ) &>/dev/null &'
-
         # Brightness
         function kl --description "Keyboard led control"
                 if test -z $argv
@@ -183,6 +180,11 @@ if status is-interactive
 
         function fehc --description "Custom feh command"
                 feh -g 1920x1080 --scale-down --image-bg black --action1 "gio trash %F" -- "$argv"
+        end
+
+        # Zathura
+        function za --description "Open documents with zathura and fzf"
+                zathura ( find ~/Documents/Library/ -type f | fzf ) &>/dev/null &
         end
 
         # ========================================================================================
