@@ -1,7 +1,6 @@
 if status is-interactive
         # Commands to run in interactive sessions can go here
         # set fish_greeting
-
         set fish_greeting
 
         set -gx EDITOR nvim
@@ -67,8 +66,10 @@ if status is-interactive
         # Animated background
         alias animvid-gpu 'xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
-        # Brightness
+        # Zathura
+        alias za 'zathura ( find ~/Documents/Library/ -type f | fzf ) &>/dev/null &'
 
+        # Brightness
         function kl --description "Keyboard led control"
                 if test -z $argv
                         set -f led (brightnessctl --device="platform::kbd_backlight" get)
@@ -120,7 +121,7 @@ if status is-interactive
                 xclip -selection c
         end
 
-        function p --description "Run a program in the background silently"
+        function rs --description "Run a program in the background silently"
                 $argv &> /dev/null &
         end
 
