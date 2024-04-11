@@ -187,6 +187,15 @@ if status is-interactive
                 zathura ( find ~/Documents/Library/ -type f | fzf ) &>/dev/null &
         end
 
+        # Nvidia proprietary drivers
+        function shutdown --description "Manually unload the nvidia proprietary drivers and shutdown"
+                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sudo systemctl poweroff
+        end
+
+        function restart --description "Manually unload the nvidia proprietary drivers and reboot"
+                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sudo systemctl reboot
+        end
+
         # ========================================================================================
 
         # KEYBINDINGS
