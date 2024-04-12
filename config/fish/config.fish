@@ -189,11 +189,11 @@ if status is-interactive
 
         # Nvidia proprietary drivers
         function shutdown --description "Manually unload the nvidia proprietary drivers and shutdown"
-                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sudo systemctl poweroff
+                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sleep 2 && sudo systemctl poweroff
         end
 
         function restart --description "Manually unload the nvidia proprietary drivers and reboot"
-                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sudo systemctl reboot
+                sudo modprobe -r nvidia_uvm nvidia_drm nvidia_modeset nvidia && sleep 2 && sudo systemctl reboot
         end
 
         # ========================================================================================
