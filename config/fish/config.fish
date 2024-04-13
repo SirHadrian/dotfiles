@@ -91,7 +91,6 @@ if status is-interactive
         end
 
         # Bluetoothctl
-
         function bl --description "Bluetooth control"
                 if test -z $argv
                         bluetoothctl show
@@ -102,7 +101,11 @@ if status is-interactive
                 else if test $argv = "s"
                         bluetoothctl show
                 else if test $argv = "1"
-                        bluetoothctl power on
+                        if test (rfkill --output DEVICE,SOFT | grep "hci0" | awk '{print $2}') = "blocked"
+                                rfkill unblock bluetooth
+                        else
+                                bluetoothctl power on
+                        end
                 else if test $argv = "0"
                         bluetoothctl power off
                 end
