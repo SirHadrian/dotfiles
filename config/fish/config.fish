@@ -58,11 +58,6 @@ if status is-interactive
         alias n 'nvim'
         alias nn 'nvim .'
 
-        # Trash
-        alias trashempty 'rm -rfv ~/.local/share/Trash/files/*; rm -rf ~/.local/share/Trash/info/*'
-        alias trashlist 'exa -l ~/.local/share/Trash/files/'
-        alias trashsize 'du -sh ~/.local/share/Trash/files/'
-
         # Animated background
         alias animvid-gpu 'xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
 
@@ -182,7 +177,7 @@ if status is-interactive
         end
 
         function fehc --description "Custom feh command"
-                feh -g 1920x1080 --scale-down --image-bg black --action1 "gio trash %F" -- "$argv"
+                feh -g 1920x1080 --scale-down --image-bg black --action1 "trashy %F" -- "$argv"
         end
 
         # Zathura
