@@ -1,24 +1,24 @@
 #!/usr/bin/bash
 
 install_ranger() {
-  CONFIGDIR=$HOME'/.config/ranger'
+        CONFIGDIR=$HOME'/.config/ranger'
 
-  [[ ! -d $CONFIGDIR ]] && mkdir -p "$CONFIGDIR"
+        [[ ! -d $CONFIGDIR ]] && mkdir -p "$CONFIGDIR"
 
-  cp -rv colorschemes rc.conf rifle.conf scope.sh "$CONFIGDIR"
+        cp -rv colorschemes rc.conf rifle.conf scope.sh "$CONFIGDIR"
 
-  if [ -f /etc/os-release ]; then
-    # freedesktop.org and systemd
-    source /etc/os-release
-    OS=$ID
-  else
-    printf "%s" "Could not detect distro"
-    exit 1
-  fi
+        if [ -f /etc/os-release ]; then
+                # freedesktop.org and systemd
+                source /etc/os-release
+                OS=$ID
+        else
+                printf "%s" "Could not detect distro"
+                exit 1
+        fi
 
-  if [[ "$OS" == "arch" ]]; then
-    # Check if ranger is installed
-    [[ -x $(command -v ranger) ]] || sudo pacman -S --needed --noconfirm ranger
+        if [[ "$OS" == "arch" ]]; then
+                # Check if ranger is installed
+                [[ -x $(command -v ranger) ]] || sudo pacman -S --needed --noconfirm ranger
 
     # Images thumbnails
     # For pictures preview
@@ -34,9 +34,9 @@ install_ranger() {
     # Video thumbnailer
     sudo pacman -S --needed --noconfirm ffmpeg ffmpegthumbnailer
 
-  elif [[ "$OS" == "fedora" ]]; then
-    # Check if ranger is installed
-    [[ -x $(command -v ranger) ]] || sudo dnf install -y ranger
+elif [[ "$OS" == "fedora" ]]; then
+        # Check if ranger is installed
+        [[ -x $(command -v ranger) ]] || sudo dnf install -y ranger
 
     # Images thumbnails
     # For pictures preview build ueberzugpp manually
@@ -51,13 +51,13 @@ install_ranger() {
 
     # Video thumbnailer
     sudo dnf install -y ffmpeg ffmpegthumbnailer
-  fi
+    fi
 
   # Build epub-thumbnailer from source and clean
   # Install dependecy globaly with python -m pip install Pillow
   git clone https://github.com/marianosimone/epub-thumbnailer.git \
-    && sudo python epub-thumbnailer/install.py install \
-    && rm -rf epub-thumbnailer
+          && sudo python epub-thumbnailer/install.py install \
+          && rm -rf epub-thumbnailer
 
   # Ranger icons plugin
   git clone https://github.com/alexanderjeurissen/ranger_devicons.git ~/.config/ranger/plugins/ranger_devicons
@@ -73,10 +73,10 @@ read -rp "Do you want to install ranger? (Y/n)" answer
 doInstall=${answer:-Y}
 
 case $doInstall in
-  [Yy]) install_ranger ;;
-  [Nn]) exit 0 ;;
-  *)
-    echo "Incorrect option"
-    exit 1
-    ;;
+        [Yy]) install_ranger ;;
+        [Nn]) exit 0 ;;
+        *)
+                echo "Incorrect option"
+                exit 1
+                ;;
 esac

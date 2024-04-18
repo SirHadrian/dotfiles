@@ -140,11 +140,6 @@ alias cat='bat'
 #alias vs='vscodium . ; exit'
 alias f='xdg-open "$(fzf)" &> /dev/null'
 
-# Nitrogen
-alias wa-scr0='nitrogen --set-auto --no-recurse --random --head=0 ~/Pictures/po/NSFW'
-alias wa-scr1='nitrogen --set-auto --no-recurse --random --head=1 ~/Pictures/po/NSFW'
-alias wbg-scr0='nitrogen --set-zoom-fill --no-recurse --random --head=0 ~/Pictures/SFW/Nature'
-
 # HDMI monitor
 alias start-HDMI='xrandr --output HDMI-1-0 --mode 1366x768 --auto --right-of eDP-1 && sleep 2 && leftwm command SoftReload'
 alias stop-HDMI='xrandr --output HDMI-1-0 --off && sleep 2 && leftwm command SoftReload'
