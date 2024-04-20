@@ -59,7 +59,14 @@ if status is-interactive
         alias nn 'nvim .'
 
         # Animated background
-        alias animvid-gpu 'xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+        alias animvid-gpu 'xwinwrap -g 1920x1080 -ov -ni -s -nf -un -fs -b -- mpv --hwdec=vdpau --vo=gpu --gpu-context=x11 -wid WID --loop --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --no-audio'
+
+        # Trash
+        alias t 'trashy'
+        alias tl 'trashy list'
+        alias te 'trashy empty'
+        alias ts 'trashy size'
+        alias tre 'trashy restore'
 
         # Brightness
         function kl --description "Keyboard led control"
@@ -79,7 +86,7 @@ if status is-interactive
 
         function br --description "Set brightness"
                 if test -z $argv
-                        brightnessctl get
+                        brightnessctl info | grep "Current brightness" | cut -d' ' -f 4
                 else
                         brightnessctl set $argv%
                 end
