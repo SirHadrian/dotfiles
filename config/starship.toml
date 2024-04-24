@@ -21,10 +21,10 @@ $character
 """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 100
+scan_timeout = 1000
 
 # Allow commands to execute longer
-command_timeout = 100
+command_timeout = 1000
 
 # Disable the blank line at the start of the prompt
 add_newline = false
@@ -42,7 +42,7 @@ pyenv_version_name = true
 
 [custom.ranger]
 command = 'echo "$RANGER_LEVEL"' # shows output of command
-when = ''' test -n "$RANGER_LEVEL" '''
+when = 'test -n "$RANGER_LEVEL"'
 format = '[ $output ](red bold)'
 
 [battery]
