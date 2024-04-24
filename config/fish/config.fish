@@ -124,7 +124,7 @@ if status is-interactive
         end
 
         function rs --description "Run a program in the background silently"
-                $argv &> /dev/null &
+                $argv &>/dev/null &
         end
 
         function makedir --description "Make a new directory and cd into it"
@@ -208,11 +208,11 @@ if status is-interactive
         bind --mode insert \ep 'pulsemixer; commandline -f repaint'
         bind --mode insert \em 'cmus; commandline -f repaint'
         bind --mode insert \er 'ranger; commandline -f repaint'
-        bind --mode insert \ee 'nvim; commandline -f repaint'
+        bind --mode insert \ee 'nvim .; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
-        # bind --mode insert --sets-mode default jj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
+        # bind --mode insert --sets-mode default jj 'commandline -f repaint'
 
         bind --mode insert \cf accept-autosuggestion
 
