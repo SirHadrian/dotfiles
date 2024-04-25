@@ -1,0 +1,112 @@
+# ~/.config/starship.toml
+
+# Use custom format
+# format = '''
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) '''
+format = """
+[░▒▓](#a3aed2)\
+$username\
+[ ](fg:#56648f bg:#434e70)\
+$directory\
+[ ](fg:#434e70 bg:#303850)\
+$git_branch\
+$git_status\
+$battery\
+[ ](fg:#303850 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+$python\
+$cmd_duration
+$jobs\
+$custom\
+$character
+"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 1000
+
+# Allow commands to execute longer
+command_timeout = 1000
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# # Replace the '❯' symbol in the prompt with '➜'
+# [character] # The name of the module we are configuring is 'character'
+# success_symbol = '[λ](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+# # success_symbol = '[](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+# error_symbol = '[](bold red)'
+
+[username]
+show_always = true
+style_user = "bg:#56648f fg:white"
+style_root = "bg:#9A348E"
+format = '[ $user ](bold $style)'
+disabled = false
+
+[directory]
+truncate_to_repo = true
+read_only = '🔒'
+read_only_style = 'red'
+truncation_symbol = ''
+home_symbol = '~'
+truncation_length = 3
+style = "bg:#434e70 fg:white"
+format = '[$path ❯ ]($style)[$read_only]($read_only_style)'
+
+[git_branch]
+truncation_length = 10
+truncation_symbol = ''
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+staged = '[++\($count\)](green)'
+
+[battery]
+full_symbol = '󰁹'
+charging_symbol = '󰂄'
+discharging_symbol = '󱊣'
+format = '[ $symbol $percentage ](fg:#769ff0 bg:#303850)'
+
+[[battery.display]]
+threshold = 30
+style = 'bold red'
+
+[[battery.display]]
+threshold = 70
+style = 'bold yellow'
+
+[[battery.display]]
+threshold = 100
+style = 'bold green'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+format = '[  $time ](fg:#a0a9cb bg:#1d2230)'
+
+[cmd_duration]
+min_time = 1000
+format = '[$duration](bold purple)'
+show_milliseconds = false
+
+[custom.ranger]
+command = 'echo "$RANGER_LEVEL"' # shows output of command
+when = 'test -n "$RANGER_LEVEL"'
+format = '[ $output ](bold purple)'
+
+[jobs]
+style = 'bold white'
+format = '[$symbol$number ]($style)'
+symbol = '+'
+number_threshold = 1
+symbol_threshold = 1
+disabled = false
+
+[character]
+success_symbol = "[ λ](bold blue)"
+error_symbol = "[ ](bold purple)"
