@@ -184,7 +184,7 @@ if status is-interactive
         end
 
         function fehc --description "Custom feh command"
-                feh -g 1920x1080 --scale-down --image-bg black --action1 "trashy %F" -- "$argv"
+                feh -g 1920x1080 --scale-down --image-bg black --action1 "trashy %F" --recursive -- "$argv"
         end
 
         # Zathura
