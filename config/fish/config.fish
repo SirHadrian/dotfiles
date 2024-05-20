@@ -26,6 +26,9 @@ if status is-interactive
         alias gb 'git branch'
         alias gc 'git checkout'
 
+        # Tmux
+        alias ta 'tmux attach'
+
         # X11 settings
         alias noblackscreen 'xset s off; xset -dpms'
         alias screenoff 'sleep 2; xset dpms force off'
@@ -183,10 +186,6 @@ if status is-interactive
                 rm -f $tempfile
         end
 
-        function fehc --description "Custom feh command"
-                feh -g 1920x1080 --scale-down --image-bg black --action1 "trashy %F" --recursive -- "$argv"
-        end
-
         # Zathura
         function za --description "Open documents with zathura and fzf"
                 zathura ( find ~/Documents/Library/ -type f | fzf ) &>/dev/null &
@@ -210,6 +209,7 @@ if status is-interactive
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim .; commandline -f repaint'
         bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
+        bind --mode insert \et 'tmux new-session -A -s "console"; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
