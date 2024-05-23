@@ -208,7 +208,6 @@ if status is-interactive
         bind --mode insert \em 'cmus; commandline -f repaint'
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim .; commandline -f repaint'
-        bind --mode insert \ew 'firefox &>/dev/null &; commandline -f repaint'
         bind --mode insert \et 'tmux new-session -A -s "console"; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
@@ -219,7 +218,7 @@ if status is-interactive
         # ========================================================================================
 
         # Update PATH
-        fish_add_path ~/.cargo/bin ~/.ghcup/bin
+        fish_add_path ~/.cargo/bin ~/.ghcup/bin /var/lib/flatpak/exports/bin
 
         # Init zoxide (cd)
         zoxide init fish | source
