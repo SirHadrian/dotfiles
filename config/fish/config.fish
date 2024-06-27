@@ -208,7 +208,7 @@ if status is-interactive
         bind --mode insert \em 'cmus; commandline -f repaint'
         bind --mode insert \er 'ranger; commandline -f repaint'
         bind --mode insert \ee 'nvim .; commandline -f repaint'
-        bind --mode insert \et 'tmux new-session -d -s "MAINFRAME" || tmux new-window -t "MAINFRAME": && tmux attach-session -t "MAINFRAME"; commandline -f repaint'
+        bind --mode insert \et 'tmux new-session -A -s "MAINFRAME"; commandline -f repaint'
         bind --mode insert --sets-mode default kj 'commandline -f repaint'
         bind --mode insert --sets-mode default kk 'commandline -f repaint'
         # bind --mode insert --sets-mode default jj 'commandline -f repaint'
