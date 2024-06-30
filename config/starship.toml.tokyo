@@ -50,7 +50,7 @@ disabled = false
 [directory]
 truncate_to_repo = true
 read_only = '🔒'
-read_only_style = 'red'
+read_only_style = "bg:#394360 fg:white"
 truncation_symbol = ''
 home_symbol = '~'
 truncation_length = 3
